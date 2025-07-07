@@ -38,7 +38,7 @@ M574 U2 S1 P"!io6.in"                                       ; configure switch-t
 M665 R243.301 L440.45:440.45:440.45:400 B145 H407           ; Set delta radius, diagonal rod length, printable radius and homed height
 M666 X0 Y0 Z0 U0                                            ; Put your endstop adjustments here, or let auto calibration find them
 ;M669 K3 X0 Y-150
-;M669 X0 Y-150                                         ; Addidtional axis offset
+;M669 X0 Y-150                                              ; Addidtional axis offset
 M669 X0 Y-50                                                ; Additional axis offset, https://docs.duet3d.com/User_manual/Machine_configuration/Configuration_linear_delta#adding-additional-towers-to-carry-flying-extruders
 
 ; Z-Probe      
@@ -77,7 +77,7 @@ M570 H2 P60 T10                                             ; An anomaly on heat
 
 ; Fans
 ; Board cooling fan, workaround to not show up in UI
-;M950 F2 C"out3" Q500                                  ; create fan 2 on pin out3 and set its frequency
+;M950 F2 C"out3" Q500                                       ; create fan 2 on pin out3 and set its frequency
 ;M106 P2 S1 H-1 C"Board fan" L255 X255                                        ; set fan 2 value. Thermostatic control is turned off
 M950 P2 C"out3"                                             ; Create a GPIO port mapped to fan2
 M42 P2 S1.0                                                 ; Turn it on
@@ -94,7 +94,7 @@ M106 P1 S1 H1 T45                                           ; set fan 1 value. T
 ; Tools
 M563 P0 S"Extruder" D0 H1 F0                                ; define tool 0
 G10 P0 X0 Y0 Z0                                             ; set tool 0 axis offsets
-G10 P0 R0 S0                                                ; set initial tool 0 active and standby temperatures to 0C
+M568 P0 R0 S0 A0                                            ; set initial tool 0 active and standby temperatures to 0C and state to off
 
 ; Emergency stop
 M950 J1 C"io1.in"
@@ -106,7 +106,7 @@ M955 P124.0                                                 ; Setup Acceleromete
 M80 C"pson"
 
 M572 D0 S0.1                                                ; Pressure advance
-;M501                                                  ; Read stored parameters
+;M501                                                       ; Read stored parameters
 
 M593 P"zvd" F46                                             ; Input shaping
 
