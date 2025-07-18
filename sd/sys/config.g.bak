@@ -94,7 +94,7 @@ M106 P1 S1 H1 T45                                           ; set fan 1 value. T
 ; Tools
 M563 P0 S"Extruder" D0 H1 F0                                ; define tool 0
 G10 P0 X0 Y0 Z0                                             ; set tool 0 axis offsets
-M568 P0 R0 S0 A0                                            ; set initial tool 0 active and standby temperatures to 0C
+M568 P0 R0 S0 A0                                            ; set initial tool 0 active and standby temperatures to 0C and state to off
 
 ; Emergency stop
 M950 J1 C"io1.in"
