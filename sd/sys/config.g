@@ -97,8 +97,8 @@ G10 P0 X0 Y0 Z0                                             ; set tool 0 axis of
 M568 P0 R0 S0 A0                                            ; set initial tool 0 active and standby temperatures to 0C and state to off
 
 ; Emergency stop
-;M950 J1 C"io1.in"
-;M581 P1 T0 S1 R0
+M950 J1 C"io1.in"
+M581 P1 T0 S1 R0
 
 M955 P124.0                                                 ; Setup Accelerometer, on Sammy-C21 with CAN address 124
 
