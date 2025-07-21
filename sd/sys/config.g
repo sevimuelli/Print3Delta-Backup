@@ -29,10 +29,10 @@ M84 S30                                                     ; Set idle timeout
 M208 Z-0.2 S1                                               ; set minimum Z
 
 ; Endstops
-M574 X2 S1 P"!io4.in"                                       ; configure switch-type (e.g. microswitch) endstop for high end on X via pin !io1.in
-M574 Y2 S1 P"!io2.in"                                       ; configure switch-type (e.g. microswitch) endstop for high end on Y via pin !io2.in
-M574 Z2 S1 P"!io5.in"                                       ; configure switch-type (e.g. microswitch) endstop for high end on Z via pin !io4.in
-M574 U2 S1 P"!io6.in"                                       ; configure switch-type (e.g. microswitch) endstop for high end on Z via pin !io4.in
+M574 X2 S1 P"io4.in"                                       ; configure switch-type (e.g. microswitch) endstop for high end on X via pin !io1.in
+M574 Y2 S1 P"io2.in"                                       ; configure switch-type (e.g. microswitch) endstop for high end on Y via pin !io2.in
+M574 Z2 S1 P"io5.in"                                       ; configure switch-type (e.g. microswitch) endstop for high end on Z via pin !io4.in
+M574 U2 S1 P"io6.in"                                       ; configure switch-type (e.g. microswitch) endstop for high end on U via pin !io4.in
 
 ; Delta config
 M665 R243.301 L440.45:440.45:440.45:400 B145 H407           ; Set delta radius, diagonal rod length, printable radius and homed height
