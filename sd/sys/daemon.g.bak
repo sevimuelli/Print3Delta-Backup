@@ -75,4 +75,12 @@ while true
 	  set var.chamberHeaterWasOn = false
 	  set var.chamberFanStandby = false
   
+  ; Set NeoPixel depending on state machine
+  if state.status == "starting"
+    M150 E0 R255 U0 B0 P255 S144
+  elif state.status == "idle"
+    M150 E0 R0 U255 B0 P255 S144
+  
+  
+  
   G4 P2000  ; Give control back to main process (Pause for 2s)
