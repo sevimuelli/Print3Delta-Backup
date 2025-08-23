@@ -105,6 +105,9 @@ M955 P124.0                                                 ; Setup Acceleromete
 ; Turn power supply on
 M80 C"pson"
 
+; Neopixel
+M950 E0 C"led" U144
+
 M572 D0 S0.1                                                ; Pressure advance
 ;M501                                                       ; Read stored parameters
 
