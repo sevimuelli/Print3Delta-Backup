@@ -102,7 +102,7 @@ M568 P0 R0 S0 A0                                            ; set initial tool 0
 
 ; Emergency stop
 M950 J1 C"io1.in"
-M581 P1 T0 S1 R0
+M581 P1 T2 S1 R0
 
 M955 P124.0                                                 ; Setup Accelerometer, on Sammy-C21 with CAN address 124
 
