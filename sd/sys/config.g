@@ -9,6 +9,10 @@ G90                                                         ; send absolute coor
 M83                                                         ; ...but relative extruder moves
 M550 P"Print3Delta"                                         ; set printer name
 
+; Neopixel
+M950 E0 C"led" U144
+M150 E0 R252 U107 B3 P255 S144
+
 
 ; Drives
 M569 P0.2 S1                                                ; physical drive 0.2 goes forwards
@@ -104,9 +108,6 @@ M955 P124.0                                                 ; Setup Acceleromete
 
 ; Turn power supply on
 M80 C"pson"
-
-; Neopixel
-M950 E0 C"led" U144
 
 M572 D0 S0.1                                                ; Pressure advance
 ;M501                                                       ; Read stored parameters
