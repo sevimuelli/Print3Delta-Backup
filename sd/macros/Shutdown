@@ -1,6 +1,7 @@
 ; Shut down RPi and wait 15s before turning off Power
 
 M80							; Make shure relay is turned on
+M150 E0 R0 U0 B255 P255 S144
 
 M141 R-273 S-273            ; Set chamber heater standby
 M140 R-273 S-273            ; Set bed heater stanby
