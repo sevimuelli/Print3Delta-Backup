@@ -1,9 +1,10 @@
 # Last backup was:
-## 23 Aug 2025 at 23:31 Local Time (TZ = -2.0 hrs)  
-## 23 Aug 2025 at 21:31 UTC 
+## 24 Aug 2025 at 10:08 Local Time (TZ = -2.0 hrs)  
+## 24 Aug 2025 at 08:08 UTC 
 
 ### The following files were added:
-sd/sys/filaments.csv<br>
+sd/sys/resurrect.g<br>
 ### The following files were updated:
-sd/sys/filaments.csv<br>
-### No files were deleted 
+sd/sys/resurrect.g<br>
+### The following files were deleted:
+sd/sys/off_daemon.g<br>
