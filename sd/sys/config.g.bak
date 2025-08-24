@@ -11,7 +11,7 @@ M550 P"Print3Delta"                                         ; set printer name
 
 ; Neopixel
 M950 E0 C"led" U144
-M150 E0 R252 U107 B3 P255 S144
+M150 E0 R255 U70 B0 P255 S144
 
 
 ; Drives
