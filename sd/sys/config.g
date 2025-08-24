@@ -122,4 +122,5 @@ M591 D0 P3 C"io2.in" S2 R80:120 L25.57                      ; filament monitor c
 
 ; Custom settings are not defined
 ; Miscellaneous
-T0                                                          ; select first tool
+T0 P0                                                       ; select first tool
+M703                                                        ; Read filament config
