@@ -117,7 +117,7 @@ M593 P"zvd" F46                                             ; Input shaping
 M308 S10 Y"mcu-temp" A"MCU"                                 ; configure sensor 3 as on-chip MCU temperature sensor
 M308 S11 Y"drivers" A"Duet stepper drivers"                 ; defines sensor 11 as stepper driver temperature sensor
 
-M591 D0 P3 C"io2.in" S2 R90:110 L26.05                      ; filament monitor connected to io2.in, extruder 0, allowed tolerance +-10%, 26.05mm/rev
+M591 D0 P3 C"io2.in" S2 R80:120 L25.57                      ; filament monitor connected to io2.in, extruder 0, allowed tolerance +-10%, 26.05mm/rev
 
 
 ; Custom settings are not defined
