@@ -3,24 +3,24 @@
 M80							; Make shure relay is turned on
 M150 E0 R0 U0 B255 P255 S144
 
-M141 R-273 S-273            ; Set chamber heater standby
-M140 R-273 S-273            ; Set bed heater stanby
-G10 P0 R-273 S-273			; Set Tool 0 temp, to turn off
+;M141 R-273 S-273            ; Set chamber heater standby
+;M140 R-273 S-273            ; Set bed heater stanby
+;G10 P0 R-273 S-273			; Set Tool 0 temp, to turn off
 M291 P"Heaters are off ;)"
 
-;M25                        ; Cancel any ongoing print
-;M0							; Stop, put motors idle and turn off heaters
+; Turn all motors and heater off
+M1
 G4 P1000
 
 
 ; In case hotend is still hot and needs the fan, wait until temp is below 45 degrees
-G4 P500
 while heat.heaters[1].current > 45		; Wait until heater has cooled down
 	G4 P1000 ;
 
-M81 S1						; Turn off power supply and wait for all termostatic fans to turn off
+; Wait for all termostatic fans to turn off and then turn off power supply pin. Shelly will turn off power after 6s.
+;M81 S1
 M291 P"Shuting down Print3Delta. Power will turn off in 5s."
 
-;G4 P5000
-M999 B-1 P"OFF" 			; Shut down RPi
+; Shut down RPi
+;M999 B-1 P"OFF"
 
