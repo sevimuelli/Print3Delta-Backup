@@ -2,11 +2,12 @@
 M291 P"Are you sure you want to continue?" R"Shutdown" S3 T5
 
 ; Move head up and home to store it correctly
-G91                         ; Set to relaive positioning
-G1 Z10                      ; Move head 10mm up
-G90                         ; Set to absolute positioning
-G1 X0 Y0                    ; Move head to center, position X0 Y0
-G28                         ; Home all
+if move.axes[0].homed
+    G91                         ; Set to relaive positioning
+    G1 Z10                      ; Move head 10mm up
+    G90                         ; Set to absolute positioning
+    G1 X0 Y0                    ; Move head to center, position X0 Y0
+    G28                         ; Home all
 
 ; Prepare
 M80							; Make shure relay is turned on
