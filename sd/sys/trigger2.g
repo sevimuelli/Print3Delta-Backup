@@ -1,2 +1,3 @@
+; Emergency stop
 M150 E0 R255 U0 B0 P255 S144
 M112
