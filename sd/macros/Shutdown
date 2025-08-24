@@ -1,26 +1,30 @@
-; Shut down RPi and wait 15s before turning off Power
+; Shutdown routine
+M291 P"Are you sure you want to continue?" R"Shutdown" S3 T5
 
+; Move head up and home to store it correctly
+G91                         ; Set to relaive positioning
+G1 Z10                      ; Move head 10mm up
+G90                         ; Set to absolute positioning
+G1 X0 Y0                    ; Move head to center, position X0 Y0
+G28                         ; Home all
+
+; Prepare
 M80							; Make shure relay is turned on
 M150 E0 R0 U0 B255 P255 S144
 
-M141 R-274 S-274            ; Set chamber heater standby
-M140 R-274 S-274            ; Set bed heater stanby
+; Turn all motors and heater off
+M141 S-273.1                ; Set chamber heater standby
+M140 S-273.1                ; Set bed heater stanby
 G10 P0 R-274 S-274			; Set Tool 0 temp, to turn off
 M18    						; Turn off all motors
-M291 P"All Motors and Heaters are off ;)"
-
-; Turn all motors and heater off
+M291 P"All Motors and Heaters are off ;)" R"Shutdown" T1
 G4 P1000
-
-
-; In case hotend is still hot and needs the fan, wait until temp is below 45 degrees
-;while heat.heaters[1].current > 45		; Wait until heater has cooled down
-;	G4 P1000 ;
 
 ; Wait for all termostatic fans to turn off and then turn off power supply pin. Shelly will turn off power after 6s.
 M81 S1
-M291 P"Shuting down Print3Delta. Power will turn off in 5s."
+M291 P"Shuting down Print3Delta. In case of thermostatic fans running, will wait to turn off. Then power will be turned off after 6s!" G4 P1000
+G4 P2000
 
 ; Shut down RPi
-;M999 B-1 P"OFF"
+M999 B-1 P"OFF"
 
