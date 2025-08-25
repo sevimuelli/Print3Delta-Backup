@@ -1,0 +1,13 @@
+T0 P0			; define tool
+M703                                                        ; Read filament config
+M568 A2             ; Turn on Hotend
+M144 S1 ; Turn on heated bed
+if heat.heaters[2].active > 0 ; Check if chamber heater should be used
+    M141 S{heat.heaters[2].active} ; Turn on chamber heater
+
+if !move.axes[0].homed
+    G28			; home
+G32			; calibrate during heating phase
+;M98 P/macros/brush.g  	; call cleaning macro if it exists
+M116	; wait for all bed, chamber, and tool heaters to arrive at their set values
+G32		; 2nd calibration taking into account heating 
