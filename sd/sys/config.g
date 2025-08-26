@@ -23,14 +23,14 @@ M569 P0.1 S1                                                ; physical drive 0.1
 M584 X0.2 Y0.3 Z0.4 E0.1 U0.0                               ; set drive mapping
 M350 X16 Y16 Z16 E16 U16 I1                                 ; configure microstepping with interpolation
 M92 X160.00 Y160.00 Z160.00 E400 U250.0                     ; set steps per mm
-M906 X1800 Y1800 Z1800 E1300 U1900 I30                      ; set motor currents (mA) and motor idle factor in per cent
+M906 X1800 Y1800 Z1800 E1300 U2000 I30                      ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                                     ; Set idle timeout
 
 ; Set motion
-M203 X18500.00 Y18500.00 Z18500.00 E7000    U6000           ; set maximum speeds (mm/min)
-M201 X6000.00  Y6000.00  Z6000.00  E6000.00 U2000           ; set accelerations (mm/s^2)
+M203 X18500.00 Y18500.00 Z18500.00 E7000    U10000          ; set maximum speeds (mm/min)
+M201 X6000.00  Y6000.00  Z6000.00  E6000.00 U6000           ; set accelerations (mm/s^2)
 ;M204 P6000 T6000
-M566 X1000.00  Y1000.00  Z1000.00  E3000.00 U100 P1        ; set maximum instantaneous speed changes (mm/min)
+M566 X1000.00  Y1000.00  Z1000.00  E3000.00 U600 P1        ; set maximum instantaneous speed changes (mm/min)
 M205 X10       Y10       Z10                                ; set jerk limits for current job (mm/s)
 
 ; Axis Limits
@@ -44,9 +44,8 @@ M574 U2 S1 P"io6.in"                                       ; configure switch-ty
 
 ; Delta config
 M665 R243.301 L440.45:440.45:440.45:400 B145 H407           ; Set delta radius, diagonal rod length, printable radius and homed height
+;M665 R243.301 L440.45:440.45:440.45 B145 H407           ; Set delta radius, diagonal rod length, printable radius and homed height
 M666 X0 Y0 Z0 U0                                            ; Put your endstop adjustments here, or let auto calibration find them
-;M669 K3 X0 Y-150
-;M669 X0 Y-150                                              ; Addidtional axis offset
 M669 X0 Y-50                                                ; Additional axis offset, https://docs.duet3d.com/User_manual/Machine_configuration/Configuration_linear_delta#adding-additional-towers-to-carry-flying-extruders
 
 ; Z-Probe      
