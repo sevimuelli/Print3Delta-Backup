@@ -1,0 +1,7 @@
+G92 U50
+G91       ; Relative positioning
+G1 U-30 F15000   ; Move Z axis up 10mm, for example
+G1 U20 F15000   ; Move Z axis up 10mm, for example
+G1 U-30 F15000   ; Move Z axis up 10mm, for example
+G1 U40 F15000   ; Move Z axis up 10mm, for example
+G90       ; Switch back to absolute positioning
