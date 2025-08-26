@@ -1,9 +1,9 @@
 # Last backup was:
-## 25 Aug 2025 at 21:38 Local Time (TZ = -2.0 hrs)  
-## 25 Aug 2025 at 19:38 UTC 
+## 26 Aug 2025 at 18:12 Local Time (TZ = -2.0 hrs)  
+## 26 Aug 2025 at 16:12 UTC 
 
-### The following files were added:
-sd/sys/resurrect.g<br>sd/macros/Cold extrusion disable<br>sd/macros/Cold extrusion allow<br>sd/macros/Prepare Printer<br>
+### No files were added.
+
 ### The following files were updated:
-sd/sys/resurrect.g<br>sd/macros/Cold extrusion disable<br>sd/macros/Cold extrusion allow<br>sd/macros/Prepare Printer<br>
+
 ### No files were deleted 
