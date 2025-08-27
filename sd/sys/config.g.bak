@@ -22,7 +22,7 @@ M569 P0.0 S0                                                ; physical drive 0.0
 M569 P0.1 S1                                                ; physical drive 0.1 goes forwards
 M584 X0.2 Y0.3 Z0.4 E0.1 U0.0                               ; set drive mapping
 M350 X16 Y16 Z16 E16 U16 I1                                 ; configure microstepping with interpolation
-M92 X160.00 Y160.00 Z160.00 E400 U250.0                     ; set steps per mm
+M92 X160.00 Y160.00 Z160.00 E391.39 U250.0                  ; set steps per mm
 M906 X1800 Y1800 Z1800 E1300 U2000 I30                      ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                                     ; Set idle timeout
 
@@ -44,14 +44,14 @@ M574 U2 S1 P"io6.in"                                       ; configure switch-ty
 
 ; Delta config
 M665 R243.301 L440.45:440.45:440.45:400 B145 H407           ; Set delta radius, diagonal rod length, printable radius and homed height
-;M665 R243.301 L440.45:440.45:440.45 B145 H407           ; Set delta radius, diagonal rod length, printable radius and homed height
 M666 X0 Y0 Z0 U0                                            ; Put your endstop adjustments here, or let auto calibration find them
 M669 X0 Y-50                                                ; Additional axis offset, https://docs.duet3d.com/User_manual/Machine_configuration/Configuration_linear_delta#adding-additional-towers-to-carry-flying-extruders
+M584 P3                                                     ; Hide U axis
 
 ; Z-Probe      
 M950 S0 C"io3.out" 
 M558 P9 C"io3.in" H3.3 F400 T6000                           ; set Z probe type to effector and the dive height + speeds
-G31 X0 Y-18 Z3.92 P25                                       ; 16.04.23 with mesh bed, + 0.12, Din Rail mount ; set Z probe trigger value, offset and trigger height
+G31 X0 Y-18 Z3.97 P25                                       ; 16.04.23 with mesh bed, + 0.12, Din Rail mount ; set Z probe trigger value, offset and trigger height
 M557 R140 S20                                               ; define mesh grid
 
 ; Heaters
