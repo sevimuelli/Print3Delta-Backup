@@ -8,7 +8,6 @@ M575 P1 S1 B57600                                           ; enable support for
 G90                                                         ; send absolute coordinates...
 M83                                                         ; ...but relative extruder moves
 M550 P"Print3Delta"                                         ; set printer name
-global shutting-down=false                                ; define global variable
 
 ; Neopixel
 M950 E0 C"led" U144
