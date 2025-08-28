@@ -22,18 +22,18 @@ M141 S-273.1                ; Set chamber heater standby
 M140 S-273.1                ; Set bed heater stanby
 G10 P0 R-274 S-274			; Set Tool 0 temp, to turn off
 M18    						; Turn off all motors
-M291 P"All Motors and Heaters are off ;)" R"Shutdown" T1
-G4 P1000
+M291 P"All Motors and Heaters are off ;)" R"Shutdown" T3
+G4 P3000
 
 ; Wait for all termostatic fans to turn off and then turn off power supply pin. Shelly will turn off power after 6s.
 M81 S1              ; turn power off (turn of power pin)  when all thermostatic fans have turned off
 if fans[1].actualValue==1 || fans[3].actualValue==1
-    M291 P"Waiting to finish cooling down and for all thermostatic fans to turn off" R"Shutdown" T2
+    M291 P"Waiting to finish cooling down and for all thermostatic fans to turn off" R"Shutdown" T0
 
     while fans[1].actualValue==1 || fans[3].actualValue==1
         G4 P1000
 
-M291 P"Shuting down Print3Delta. Power will be turned off after 6s!" G4
+M291 P"Shuting down Print3Delta. Power will be turned off after 6s!" R"Shutdown" 
 G4 P3000
 
 ; Shut down RPi
