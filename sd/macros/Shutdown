@@ -3,7 +3,10 @@ M291 P"Are you sure you want to continue?" R"Shutdown" S3 T5
 
 ; Prepare
 M80							; Make shure relay is turned on
-global shuttingDown=true ; set global variable to change light in daemon
+if exists(global.shuttingDown) ; set global variable to change light in daemon
+    set global.shuttingDown=true 
+else
+    global shuttingDown=true
 M150 E0 R0 U0 B255 P255 S144 ; blue, change here to change immidiately
 
 ; Move head up and home to store it correctly
@@ -24,9 +27,15 @@ G4 P1000
 
 ; Wait for all termostatic fans to turn off and then turn off power supply pin. Shelly will turn off power after 6s.
 M81 S1              ; turn power off (turn of power pin)  when all thermostatic fans have turned off
-M291 P"Shuting down Print3Delta. In case of thermostatic fans running, will wait to turn off. Then power will be turned off after 6s!" G4 P1000
-G4 P2000
+if fans[1].actualValue==1 || fans[3].actualValue==1
+    M291 P"Waiting to finish cooling down and for all thermostatic fans to turn off" R"Shutdown" T2
+
+    while fans[1].actualValue==1 || fans[3].actualValue==1
+        G4 P1000
+
+M291 P"Shuting down Print3Delta. Power will be turned off after 6s!" G4
+G4 P3000
 
 ; Shut down RPi
-;M999 B-1 P"OFF"
+M999 B-1 P"OFF"
 
