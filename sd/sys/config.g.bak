@@ -8,6 +8,7 @@ M575 P1 S1 B57600                                           ; enable support for
 G90                                                         ; send absolute coordinates...
 M83                                                         ; ...but relative extruder moves
 M550 P"Print3Delta"                                         ; set printer name
+global shutting-down=false                                ; define global variable
 
 ; Neopixel
 M950 E0 C"led" U144
@@ -28,9 +29,9 @@ M84 S30                                                     ; Set idle timeout
 
 ; Set motion
 M203 X18500.00 Y18500.00 Z18500.00 E7000    U10000          ; set maximum speeds (mm/min)
-M201 X6000.00  Y6000.00  Z6000.00  E3500.00 U6000           ; set accelerations (mm/s^2)
+M201 X6000.00  Y6000.00  Z6000.00  E2500.00 U6000           ; set accelerations (mm/s^2)
 ;M204 P6000 T6000
-M566 X1000.00  Y1000.00  Z1000.00  E1500.00 U600 P1         ; set maximum instantaneous speed changes (mm/min)
+M566 X1000.00  Y1000.00  Z1000.00  E1000.00 U600 P1         ; set maximum instantaneous speed changes (mm/min)
 M205 X10       Y10       Z10                                ; set jerk limits for current job (mm/s)
 
 ; Axis Limits
