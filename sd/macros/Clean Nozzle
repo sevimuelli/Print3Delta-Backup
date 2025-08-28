@@ -1,0 +1,40 @@
+; Macro to clean nozzle
+M291 P"Cleaning nozzle. Will extrude and wipe nozzle multiple times" R"Clean Nozzle" T5
+
+G91                         ; Set to relative positioning
+G1 Z100                     ; Move head 100mm up
+G90                         ; Set to absolute positioning
+G1 X0 Y0                    ; Move head to center, position X0 Y0
+M564 S0			            ; can go outside the limits defined in M665
+G1 X0 Y145 Z70 F6000	    ; go to origin point, within authorized area, higher than brush
+G1 X-8 Y195 Z64 F1500	    ; go to extruder position
+
+; Extrude filament
+G11
+G1 E20 F300
+G4 S2
+G1 E20 F300
+G4 S2
+G1 E20 F300
+G10
+G1 Z70 F1500
+
+; Clean nozzle
+G1 X8 Y197 F1500 ; go to wiping position
+G1 Z60.5 F1500
+G91                 ; Set to relative positioning
+G1 X22 Y-7 F1500
+G1 X-22 F1500
+G1 X22 Y7 F1500
+G1 Y-7 F1500
+G1 X-22 Y7 F1500
+G1 X22 F1500
+G1 X-22 Y-7 F1500
+G1 Z9.5
+
+; Go back home
+G90                         ; Set to absolute positioning
+G1 Z70 F1500
+G1 X0 Y145 Z70 F3000	    ; go to origin point, within authorized area, higher than brush
+M564 S1			            ; set again the safe area limits
+G0 X0 Y0 Z50  F6000	        ; back to center
