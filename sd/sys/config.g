@@ -99,7 +99,7 @@ M950 F1 C"out6" Q500                                        ; create fan 1 on pi
 M106 P1 S1 H1 T45 C"Tool fan"                               ; set fan 1 value. Thermostatic control is turned on
 
 ; Tools
-M563 P0 S"Extruder" D0 H1 F1                                ; define tool 0
+M563 P0 S"Extruder" D0 H1 F0                                ; define tool 0
 G10 P0 X0 Y0 Z0                                             ; set tool 0 axis offsets
 M568 P0 R0 S0 A0                                            ; set initial tool 0 active and standby temperatures to 0C and state to off
 
