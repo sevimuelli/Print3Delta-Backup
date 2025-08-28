@@ -8,6 +8,6 @@ if heat.heaters[2].active > 0 ; Check if chamber heater should be used
 if !move.axes[0].homed
     G28			; home
 G32			; calibrate during heating phase
-;M98 P/macros/brush.g  	; call cleaning macro if it exists
 M116	; wait for all bed, chamber, and tool heaters to arrive at their set values
+M98 P"0:/macros/Clean Nozzle" 	; call cleaning macro if it exists
 G32		; 2nd calibration taking into account heating 
