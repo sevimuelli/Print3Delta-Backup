@@ -28,7 +28,7 @@ G4 P3000
 ; Wait for all termostatic fans to turn off and then turn off power supply pin. Shelly will turn off power after 6s.
 M81 S1              ; turn power off (turn of power pin)  when all thermostatic fans have turned off
 if fans[1].actualValue==1 || fans[3].actualValue==1
-    M291 P"Waiting to finish cooling down and for all thermostatic fans to turn off" R"Shutdown" T0
+    M291 P"Waiting to finish cooling down and for all thermostatic fans to turn off" R"Shutdown" T5
 
     while fans[1].actualValue==1 || fans[3].actualValue==1
         G4 P1000
