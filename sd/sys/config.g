@@ -37,10 +37,10 @@ M205 X10       Y10       Z10                                ; set jerk limits fo
 M208 Z-0.2 S1                                               ; set minimum Z
 
 ; Endstops
-M574 X2 S1 P"io4.in"                                       ; configure switch-type (e.g. microswitch) endstop for high end on X via pin !io1.in
-M574 Y2 S1 P"^io2.out"                                     ; configure switch-type (e.g. microswitch) endstop for high end on Y via pin !io2.in
-M574 Z2 S1 P"io5.in"                                       ; configure switch-type (e.g. microswitch) endstop for high end on Z via pin !io4.in
-M574 U2 S1 P"io6.in"                                       ; configure switch-type (e.g. microswitch) endstop for high end on U via pin !io4.in
+M574 X2 S1 P"io4.in"                                        ; configure switch-type (e.g. microswitch) endstop for high end on X via pin !io1.in
+M574 Y2 S1 P"^io2.out"                                      ; configure switch-type (e.g. microswitch) endstop for high end on Y via pin !io2.in
+M574 Z2 S1 P"io5.in"                                        ; configure switch-type (e.g. microswitch) endstop for high end on Z via pin !io4.in
+M574 U2 S1 P"io6.in"                                        ; configure switch-type (e.g. microswitch) endstop for high end on U via pin !io4.in
 
 ; Delta config
 M665 R243.301 L440.45:440.45:440.45:400 B145 H407           ; Set delta radius, diagonal rod length, printable radius and homed height
@@ -96,10 +96,10 @@ M950 F0 C"out5" Q500                                        ; create fan 0 on pi
 M106 P0 S0 H-1 C"Part fan" L100                             ; set fan 0 value. Thermostatic control is turned off
 ; Hot-End fan, auto -> not shown
 M950 F1 C"out6" Q500                                        ; create fan 1 on pin out6 and set its frequency
-M106 P1 S1 H1 T45                                           ; set fan 1 value. Thermostatic control is turned on
+M106 P1 S1 H1 T45 C"Tool fan"                               ; set fan 1 value. Thermostatic control is turned on
 
 ; Tools
-M563 P0 S"Extruder" D0 H1 F0                                ; define tool 0
+M563 P0 S"Extruder" D0 H1 F1                                ; define tool 0
 G10 P0 X0 Y0 Z0                                             ; set tool 0 axis offsets
 M568 P0 R0 S0 A0                                            ; set initial tool 0 active and standby temperatures to 0C and state to off
 
@@ -112,7 +112,7 @@ M955 P124.0                                                 ; Setup Acceleromete
 ; Turn power supply on
 M80 C"pson"
 
-M572 D0 S0.2                                                ; Pressure advance
+M572 D0 S0.31                                               ; Pressure advance
 ;M501                                                       ; Read stored parameters
 
 M593 P"zvd" F46                                             ; Input shaping
