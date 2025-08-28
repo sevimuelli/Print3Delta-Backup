@@ -28,9 +28,9 @@ M84 S30                                                     ; Set idle timeout
 
 ; Set motion
 M203 X18500.00 Y18500.00 Z18500.00 E7000    U10000          ; set maximum speeds (mm/min)
-M201 X6000.00  Y6000.00  Z6000.00  E6000.00 U6000           ; set accelerations (mm/s^2)
+M201 X6000.00  Y6000.00  Z6000.00  E2500.00 U6000           ; set accelerations (mm/s^2)
 ;M204 P6000 T6000
-M566 X1000.00  Y1000.00  Z1000.00  E3000.00 U600 P1        ; set maximum instantaneous speed changes (mm/min)
+M566 X1000.00  Y1000.00  Z1000.00  E1000.00 U600 P1         ; set maximum instantaneous speed changes (mm/min)
 M205 X10       Y10       Z10                                ; set jerk limits for current job (mm/s)
 
 ; Axis Limits
@@ -112,7 +112,7 @@ M955 P124.0                                                 ; Setup Acceleromete
 ; Turn power supply on
 M80 C"pson"
 
-M572 D0 S0.1                                                ; Pressure advance
+M572 D0 S0.2                                                ; Pressure advance
 ;M501                                                       ; Read stored parameters
 
 M593 P"zvd" F46                                             ; Input shaping
