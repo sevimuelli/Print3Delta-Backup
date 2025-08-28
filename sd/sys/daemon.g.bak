@@ -11,7 +11,7 @@ var debugOn = false
 
 while true
   set var.chamberFanOnSpeed = 0.8
-  set var.debugOn = true  ; Here to change while running
+  set var.debugOn = false  ; Here to change while running
   if var.debugOn
     echo >>"daemon_debug.txt" state.time, ", chamberFanOn: ", var.chamberFanOn, ", chamberFanStandby: ", var.chamberFanStandby, ", chamberHeaterWasOn", var.chamberHeaterWasOn
   if heat.heaters[2].state == "active" || heat.heaters[2].state == "tuning"
@@ -76,7 +76,9 @@ while true
 	  set var.chamberFanStandby = false
   
   ; Set NeoPixel depending on state machine
-  if state.status == "starting"
+  if global.shuttingDown == true
+    M150 E0 R0 U0 B255 P255 S144	; blue
+  elif state.status == "starting"
     M150 E0 R255 U70 B0 P255 S144  ; orange
   elif state.status == "disconnected"
     M150 E0 R255 U70 B0 P255 S144  ; orange
@@ -90,8 +92,6 @@ while true
     M150 E0 R255 U255 B0 P255 S144  ; yellow
   elif state.status == "halted" 
 	M150 E0 R255 U0 B0 P255 S144	; red
-  elif global.shutting-down == true
-    M150 E0 R0 U0 B255 P255 S144	; blue
   else
     M150 E0 R255 U70 B0 P255 S144  ; orange
   
