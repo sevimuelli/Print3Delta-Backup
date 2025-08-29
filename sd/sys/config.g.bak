@@ -90,13 +90,13 @@ M950 P2 C"out3"                                             ; Create a GPIO port
 M42 P2 S1.0                                                 ; Turn it on
 ; Chamber heater fan
 M950 F3 C"!out4+out4.tach" Q25000 B0                        ; create fan 3 on pin out4, set its frequency and blip time to 0
-M106 P3 S0 H-1 C"Chamber heater" L0.5                       ;X0.8             ; set fan 3 value. Thermostatic control is turned off
+M106 P3 S0 H-1 C"Chamber Heater" L0.5                       ;X0.8             ; set fan 3 value. Thermostatic control is turned off
 ; Part fan
 M950 F0 C"out5" Q500                                        ; create fan 0 on pin out5 and set its frequency
-M106 P0 S0 H-1 C"Part fan" L100                             ; set fan 0 value. Thermostatic control is turned off
+M106 P0 S0 H-1 C"Part Fan" L100                             ; set fan 0 value. Thermostatic control is turned off
 ; Hot-End fan, auto -> not shown
 M950 F1 C"out6" Q500                                        ; create fan 1 on pin out6 and set its frequency
-M106 P1 S1 H1 T45 C"Tool fan"                               ; set fan 1 value. Thermostatic control is turned on
+M106 P1 S1 H1 T45 C"Hotend fan"                               ; set fan 1 value. Thermostatic control is turned on
 
 ; Tools
 M563 P0 S"Extruder" D0 H1 F0                                ; define tool 0
