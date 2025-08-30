@@ -1,5 +1,5 @@
 M92 E391.39                   ; Extruder steps
-M572 D0 S0.31                 ; Pressure advance
+M572 D0 S0.29                 ; Pressure advance
 M207 S4 R0.0 F3000 T3000 Z0.5 ; firmware retraction settings
 
 ; Set temperatures
