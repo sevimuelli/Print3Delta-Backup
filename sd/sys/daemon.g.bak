@@ -76,7 +76,7 @@ while true
 	  set var.chamberFanStandby = false
   
   ; Set NeoPixel depending on state machine
-  if global.shuttingDown == true
+  if exists(global.shuttingDown) && global.shuttingDown == true
     M150 E0 R0 U0 B255 P255 S144	; blue
   elif state.status == "starting"
     M150 E0 R255 U70 B0 P255 S144  ; orange
