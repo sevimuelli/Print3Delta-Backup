@@ -1,6 +1,13 @@
 ; Macro to clean nozzle
 M291 P"Cleaning nozzle. Will extrude and wipe nozzle multiple times" R"Clean Nozzle" T5
 
+G4 S3
+
+if !global.printerCalibrated
+    M291 P"Printer is not calibrated. Would you like to run macro ""Prepare Printer"" to get the printer ready for printing? " R"Clean Nozzle" T10 S3
+    M98 P"0:/macros/Prepare Printer" 	; call "Prepare Printer" macro if it exists
+    
+
 G91                   ; Set to relative positioning
 G1 Z10                ; Move head 10mm up
 G90                   ; Set to absolute positioning
