@@ -19,6 +19,7 @@ G30 P7 X58.46 Y-33.75 Z-99999 H0
 G30 P8 X-58.46 Y-33.75 Z-99999 H0
 G30 P9 X0 Y0 Z-99999 S6
 
+set global.printerCalibrated=true
 
 ; Use S-1 for measurements only, without calculations. Use S4 for endstop heights and Z-height only. Use S6 for full 6 factors
 ; If your Z probe has significantly different trigger heights depending on XY position, adjust the H parameters in the G30 commands accordingly. The value of each H parameter should be (trigger height at that XY position) - (trigger height at centre of bed)
