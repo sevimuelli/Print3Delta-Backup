@@ -11,3 +11,5 @@ G32			; calibrate during heating phase
 M116	; wait for all bed, chamber, and tool heaters to arrive at their set values
 M98 P"0:/macros/Clean Nozzle" 	; call cleaning macro if it exists
 G32		; 2nd calibration taking into account heating 
+
+set global.printerReady=true ; set global variable to change light in daemon
