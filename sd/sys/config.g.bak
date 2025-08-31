@@ -9,6 +9,14 @@ G90                                                         ; send absolute coor
 M83                                                         ; ...but relative extruder moves
 M550 P"Print3Delta"                                         ; set printer name
 
+; Global variables
+if !exists(global.shuttingDown) ; set global variable for shutdown state
+    global shuttingDown=false
+
+if !exists(global.printerReady) ; set global variable for shutdown state
+    global printerReady=false
+
+
 ; Neopixel
 M950 E0 C"led" U144
 M150 E0 R255 U70 B0 P255 S144
@@ -86,8 +94,8 @@ M570 H2 P60 T10                                             ; An anomaly on heat
 ; Board cooling fan, workaround to not show up in UI
 ;M950 F2 C"out3" Q500                                       ; create fan 2 on pin out3 and set its frequency
 ;M106 P2 S1 H-1 C"Board fan" L255 X255                                        ; set fan 2 value. Thermostatic control is turned off
-M950 P2 C"out3" Q300                                             ; Create a GPIO port mapped to fan2
-M42 P2 S0.6                                                 ; Turn it on
+M950 P2 C"out3"                                             ; Create a GPIO port mapped to fan2
+M42 P2 S1.0                                                 ; Turn it on
 ; Chamber heater fan
 M950 F3 C"!out4+out4.tach" Q25000 B0                        ; create fan 3 on pin out4, set its frequency and blip time to 0
 M106 P3 S0 H-1 C"Chamber Heater" L0.5                       ;X0.8             ; set fan 3 value. Thermostatic control is turned off
@@ -112,7 +120,7 @@ M955 P124.0                                                 ; Setup Acceleromete
 ; Turn power supply on
 M80 C"pson"
 
-M572 D0 S0.31                                               ; Pressure advance
+M572 D0 S0.29                                               ; Pressure advance
 ;M501                                                       ; Read stored parameters
 
 M593 P"zvd" F46                                             ; Input shaping
