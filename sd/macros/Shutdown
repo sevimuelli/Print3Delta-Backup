@@ -3,10 +3,9 @@ M291 P"Are you sure you want to continue?" R"Shutdown" S3 T5
 
 ; Prepare
 M80							; Make shure relay is turned on
-if exists(global.shuttingDown) ; set global variable to change light in daemon
-    set global.shuttingDown=true 
-else
-    global shuttingDown=true
+
+set global.shuttingDown=true ; set global variable to change light in daemon
+
 M150 E0 R0 U0 B255 P255 S144 ; blue, change here to change immidiately
 
 ; Move head up and home to store it correctly
