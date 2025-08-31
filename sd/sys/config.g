@@ -9,6 +9,17 @@ G90                                                         ; send absolute coor
 M83                                                         ; ...but relative extruder moves
 M550 P"Print3Delta"                                         ; set printer name
 
+; Global variables
+if !exists(global.shuttingDown) ; set global variable for shutdown state
+    global shuttingDown=false
+
+if !exists(global.printerCalibrated) ; set global variable for shutdown state
+    global printerCalibrated=false
+
+if !exists(global.printerReady) ; set global variable for shutdown state
+    global printerReady=false
+
+
 ; Neopixel
 M950 E0 C"led" U144
 M150 E0 R255 U70 B0 P255 S144
@@ -112,7 +123,7 @@ M955 P124.0                                                 ; Setup Acceleromete
 ; Turn power supply on
 M80 C"pson"
 
-M572 D0 S0.31                                               ; Pressure advance
+M572 D0 S0.29                                               ; Pressure advance
 ;M501                                                       ; Read stored parameters
 
 M593 P"zvd" F46                                             ; Input shaping
