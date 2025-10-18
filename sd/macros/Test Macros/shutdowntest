@@ -1,0 +1,3 @@
+M98 P"0:/macros/Shutdown"  ; call "Shutdown" macro if it exists
+G4 S2
+M292
