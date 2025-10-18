@@ -1,40 +1,5 @@
 ; Shutdown routine
 M291 P"Are you sure you want to continue?" R"Shutdown" S3 T5
 
-; Prepare
-M80							; Make shure relay is turned on
-
-set global.shuttingDown=true ; set global variable to change light in daemon
-
-M150 E0 R0 U0 B255 P255 S144 ; blue, change here to change immidiately
-
-; Move head up and home to store it correctly
-if move.axes[0].homed
-    G91                         ; Set to relaive positioning
-    G1 Z10                      ; Move head 10mm up
-    G90                         ; Set to absolute positioning
-    G1 X0 Y0                    ; Move head to center, position X0 Y0
-    G28                         ; Home all
-
-; Turn all motors and heater off
-M141 S-273.1                ; Set chamber heater standby
-M140 S-273.1                ; Set bed heater stanby
-G10 P0 R-274 S-274			; Set Tool 0 temp, to turn off
-M18    						; Turn off all motors
-M291 P"All Motors and Heaters are off ;)" R"Shutdown" T3
-G4 P3000
-
-; Wait for all termostatic fans to turn off and then turn off power supply pin. Shelly will turn off power after 6s.
-M81 S1              ; turn power off (turn of power pin)  when all thermostatic fans have turned off
-if fans[1].actualValue==1 || fans[3].actualValue==1
-    M291 P"Waiting to finish cooling down and for all thermostatic fans to turn off" R"Shutdown" T5
-
-    while fans[1].actualValue==1 || fans[3].actualValue==1
-        G4 P1000
-
-M291 P"Shuting down Print3Delta. Power will be turned off after 6s!" R"Shutdown" 
-G4 P3000
-
-; Shut down RPi
-M999 B-1 P"OFF"
+M98 P"0:/macros/System Macros/Force Shutdown"  ; call "Shutdown" macro if it exists
 
