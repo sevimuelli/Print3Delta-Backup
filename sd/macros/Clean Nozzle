@@ -28,7 +28,7 @@ G1 Z67 F1500
 
 ; Clean nozzle
 G1 X13 Y197 F1500      ; go to wiping position
-G1 Z66.5 F1500        ; move head down
+G1 Z67 F1500        ; move head down
 G91                   ; Set to relative positioning
 G1 X22 Y-7 F1500
 G1 X-22 F1500
