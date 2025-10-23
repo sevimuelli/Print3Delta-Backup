@@ -1,9 +1,10 @@
 # Last backup was:
-## 22 Oct 2025 at 22:32 Local Time (TZ = -2.0 hrs)  
-## 22 Oct 2025 at 20:32 UTC 
+## 23 Oct 2025 at 10:27 Local Time (TZ = -2.0 hrs)  
+## 23 Oct 2025 at 08:27 UTC 
 
-### The following files were added:
-sd/sys/resurrect.g<br>
+### No files were added.
+
 ### The following files were updated:
+
+### The following files were deleted:
 sd/sys/resurrect.g<br>
-### No files were deleted 
