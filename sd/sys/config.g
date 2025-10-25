@@ -62,7 +62,7 @@ M584 P3                                                     ; Hide U axis
 ; Z-Probe      
 M950 S0 C"io3.out" 
 M558 P9 C"io3.in" H3.3 F400 T6000                           ; set Z probe type to effector and the dive height + speeds
-G31 X0 Y-18 Z4.263 P25                                       ; 16.04.23 with mesh bed, + 0.12, Din Rail mount ; set Z probe trigger value, offset and trigger height
+G31 X0 Y-18 Z4.35 P25                                       ; 16.04.23 with mesh bed, + 0.12, Din Rail mount ; set Z probe trigger value, offset and trigger height
 M557 R140 S20                                               ; define mesh grid
 
 ; Heaters
@@ -123,7 +123,7 @@ M955 P124.0                                                 ; Setup Acceleromete
 ; Turn power supply on
 M80 C"pson"
 
-M572 D0 S0.22                                               ; Pressure advance
+M572 D0 S0.25                                               ; Pressure advance
 ;M501                                                       ; Read stored parameters
 
 M593 P"zvd" F46                                             ; Input shaping
