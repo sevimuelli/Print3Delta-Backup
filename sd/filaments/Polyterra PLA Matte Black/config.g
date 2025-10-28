@@ -1,5 +1,5 @@
 M92 E395.34                   ; Extruder steps
-M572 D0 S0.22                 ; Pressure advance
+M572 D0 S0.25                 ; Pressure advance
 M207 S3.5 R0.0 F900 T900 Z0.5 ; firmware retraction settings (normally around 3000+)
 G31 Z4.11                     ; Z Probe trigger height
 
