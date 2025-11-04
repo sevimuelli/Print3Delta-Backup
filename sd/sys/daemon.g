@@ -87,7 +87,7 @@ while true
   elif state.status == "busy"
     M150 E0 R140 U0 B237 P255 S144  ; purple
   elif state.status == "processing"
-    M150 E0 R255 U255 B255 P255 S144  ; white
+    M150 E0 R255 U180 B150 P255 S144  ; white
   elif state.status == "paused"
     M150 E0 R255 U255 B0 P255 S144  ; yellow
   elif state.status == "halted" 
