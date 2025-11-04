@@ -12,8 +12,8 @@ G91                   ; Set to relative positioning
 G1 Z10                ; Move head 10mm up
 G90                   ; Set to absolute positioning
 M564 S0               ; can go outside the limits defined in M665
-G1 X0 Y145 Z130 F6000 ; go to origin point, within authorized area, higher than brush
-G1 X-4 Y194 F1500     ; go to extruder position
+G1 X0 Y-145 Z130 F6000 ; go to origin point, within authorized area, higher than brush
+G1 X4 Y-194 F1500     ; go to extruder position
 G1 Z65 F1500          ; move head down
 
 ; Extrude filament
@@ -40,16 +40,16 @@ G1 Z67 F1500
 ;G1 Z4.5
 
 ; Clean nozzle
-G1 X9 Y195.7 Z67 F1500      ; go to wiping position
-G1 X32.7 F1500
-G1 Y189.9 F1500
-G1 X4 F1500
+G1 X-9 Y-195.7 Z67 F1500      ; go to wiping position
+G1 X-32.7 F1500
+G1 Y-189.9 F1500
+G1 X-4 F1500
 G1 Z70 F1500
 
 
 ; Go back home
 G90                   ; Set to absolute positioning
 G1 Z70 F1500          ; Make sure head is high enough
-G1 X0 Y145 Z70 F3000  ; go to origin point, within authorized area, higher than brush
+G1 X0 Y-145 Z70 F3000  ; go to origin point, within authorized area, higher than brush
 M564 S1               ; set again the safe area limits
 G0 X0 Y0 Z50  F6000   ; back to center
