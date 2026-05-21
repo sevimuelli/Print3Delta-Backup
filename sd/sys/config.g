@@ -30,18 +30,18 @@ M569 P0.2 S1                                                ; physical drive 0.2
 M569 P0.3 S1                                                ; physical drive 0.3 goes forwards
 M569 P0.4 S1                                                ; physical drive 0.4 goes forwards
 M569 P0.0 S0                                                ; physical drive 0.0 goes forwards
-M569 P0.1 S1                                                ; physical drive 0.1 goes forwards
+M569 P0.1 S0                                                ; physical drive 0.1 goes forwards
 M584 X0.2 Y0.3 Z0.4 E0.1 U0.0                               ; set drive mapping
 M350 X16 Y16 Z16 E16 U16 I1                                 ; configure microstepping with interpolation
-M92 X160.00 Y160.00 Z160.00 E395.34 U250.0                  ; set steps per mm
-M906 X1800 Y1800 Z1800 E1300 U2000 I30                      ; set motor currents (mA) and motor idle factor in per cent
+M92 X160.00 Y160.00 Z160.00 E2682 U250.0                  ; set steps per mm
+M906 X1800 Y1800 Z1800 E0420 U2000 I30                      ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                                     ; Set idle timeout
 
 ; Set motion
-M203 X18500.00 Y18500.00 Z18500.00 E7000    U10000          ; set maximum speeds (mm/min)
-M201 X6000.00  Y6000.00  Z6000.00  E8000.00 U6000           ; set accelerations (mm/s^2)
+M203 X18500.00 Y18500.00 Z18500.00 E700    U10000          ; set maximum speeds (mm/min)
+M201 X6000.00  Y6000.00  Z6000.00  E800.00 U6000           ; set accelerations (mm/s^2)
 ;M204 P6000 T6000
-M566 X1000.00  Y1000.00  Z1000.00  E1200.00 U600 P1         ; set maximum instantaneous speed changes (mm/min)
+M566 X1000.00  Y1000.00  Z1000.00  E200.00 U600 P1         ; set maximum instantaneous speed changes (mm/min)
 ;M205 X10       Y10       Z10                                ; set jerk limits for current job (mm/s)
 
 ; Axis Limits
@@ -131,7 +131,7 @@ M593 P"zvd" F46                                             ; Input shaping
 M308 S10 Y"mcu-temp" A"MCU"                                 ; configure sensor 3 as on-chip MCU temperature sensor
 M308 S11 Y"drivers" A"Duet stepper drivers"                 ; defines sensor 11 as stepper driver temperature sensor
 
-M591 D0 P3 C"io2.in" L25.52 R70:130 S2 A1                   ; filament monitor connected to io2.in, extruder 0, allowed tolerance +-10%, 26.05mm/rev
+M591 D0 P3 C"io2.in" L26.8937 R70:130 S2 A1                   ; filament monitor connected to io2.in, extruder 0, allowed tolerance +-10%, 26.05mm/rev
 
 
 ; Custom settings are not defined
