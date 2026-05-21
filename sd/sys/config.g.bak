@@ -33,7 +33,7 @@ M569 P0.0 S0                                                ; physical drive 0.0
 M569 P0.1 S0                                                ; physical drive 0.1 goes forwards
 M584 X0.2 Y0.3 Z0.4 E0.1 U0.0                               ; set drive mapping
 M350 X16 Y16 Z16 E16 U16 I1                                 ; configure microstepping with interpolation
-M92 X160.00 Y160.00 Z160.00 E2682 U250.0                  ; set steps per mm
+M92 X160.00 Y160.00 Z160.00 E2682.0 U250.0                  ; set steps per mm
 M906 X1800 Y1800 Z1800 E0420 U2000 I30                      ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                                     ; Set idle timeout
 
