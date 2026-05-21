@@ -38,7 +38,7 @@ M906 X1800 Y1800 Z1800 E0420 U2000 I30                      ; set motor currents
 M84 S30                                                     ; Set idle timeout
 
 ; Set motion
-M203 X18500.00 Y18500.00 Z18500.00 E700    U10000          ; set maximum speeds (mm/min)
+M203 X18500.00 Y18500.00 Z18500.00 E1200    U10000          ; set maximum speeds (mm/min)
 M201 X6000.00  Y6000.00  Z6000.00  E3000.00 U6000           ; set accelerations (mm/s^2)
 ;M204 P6000 T6000
 M566 X1000.00  Y1000.00  Z1000.00  E150.00 U600 P1         ; set maximum instantaneous speed changes (mm/min)
@@ -131,7 +131,7 @@ M593 P"zvd" F46                                             ; Input shaping
 M308 S10 Y"mcu-temp" A"MCU"                                 ; configure sensor 3 as on-chip MCU temperature sensor
 M308 S11 Y"drivers" A"Duet stepper drivers"                 ; defines sensor 11 as stepper driver temperature sensor
 
-;M591 D0 P3 C"io2.in" L26.8937 R70:130 S2 A1                   ; filament monitor connected to io2.in, extruder 0, allowed tolerance +-10%, 26.05mm/rev
+M591 D0 P2 C"^io2.in" ;L26.8937 R70:130 S2 A1                   ; filament monitor connected to io2.in, extruder 0, allowed tolerance +-10%, 26.05mm/rev
 
 
 ; Custom settings are not defined
