@@ -30,7 +30,7 @@ M569 P0.2 S1                                                ; physical drive 0.2
 M569 P0.3 S1                                                ; physical drive 0.3 goes forwards
 M569 P0.4 S1                                                ; physical drive 0.4 goes forwards
 M569 P0.0 S0                                                ; physical drive 0.0 goes forwards
-M569 P0.1 S1                                                ; physical drive 0.1 goes forwards
+M569 P0.1 S0                                                ; physical drive 0.1 goes forwards
 M584 X0.2 Y0.3 Z0.4 E0.1 U0.0                               ; set drive mapping
 M350 X16 Y16 Z16 E16 U16 I1                                 ; configure microstepping with interpolation
 M92 X160.00 Y160.00 Z160.00 E2682 U250.0                  ; set steps per mm
