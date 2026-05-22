@@ -54,9 +54,9 @@ M574 Z2 S1 P"io5.in"                                        ; configure switch-t
 M574 U2 S1 P"io6.in"                                        ; configure switch-type (e.g. microswitch) endstop for high end on U via pin !io4.in
 
 ; Delta config
-M665 R243.301 L440.45:440.45:440.45:400 B145 H407 X180 Y180 Z180          ; Set delta radius, diagonal rod length, printable radius and homed height, rotate axis 180° so X and Y coordinate axis are correct
+M665 R243.301 L440.45:440.45:440.45:300 B145 H407 X180 Y180 Z180          ; Set delta radius, diagonal rod length, printable radius and homed height, rotate axis 180° so X and Y coordinate axis are correct
 M666 X0 Y0 Z0 U0                                            ; Put your endstop adjustments here, or let auto calibration find them
-M669 X0 Y-50                                                ; Additional axis offset, https://docs.duet3d.com/User_manual/Machine_configuration/Configuration_linear_delta#adding-additional-towers-to-carry-flying-extruders
+M669 X0 Y50                                                ; Additional axis offset, https://docs.duet3d.com/User_manual/Machine_configuration/Configuration_linear_delta#adding-additional-towers-to-carry-flying-extruders
 M584 P3                                                     ; Hide U axis
 
 ; Z-Probe      
